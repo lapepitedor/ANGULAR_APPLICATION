@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let pok of pokemonList" class="col m4 m6">
+      <div (click)="goToPokemon(pok)" class="card horizontal" pokemonBorderCard ="purple">
+        <div class="card-image">
+          <img [src]="pok.picture"/>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>{{pok.name}}</p>
+            <p><small>{{pok.created | date:"dd/MM/yyyy" }}</small></p> <!-- PR CREER UNE PIPE | ET LE NOM DU PIPE-->
+            <span *ngFor="let type of pok.types" class="{{ type | pokemonTypeColor}}">{{type}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
